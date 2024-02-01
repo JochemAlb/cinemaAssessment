@@ -1,0 +1,67 @@
+:host {
+  display: flex;
+  margin-bottom: 1rem;
+  break-inside: avoid;
+  color: var(--gray-60);
+  font-size: 1rem;
+
+  & mat-card {
+    background-color: var(--gray-10);
+    border: solid 4px white;
+
+    & mat-card-header {
+      & mat-card-title {
+        font-size: 1.2rem;
+      }
+    }
+
+    & mat-card-content {
+      & .meta {
+        @extend .meta-base;
+        border-width: 0 0 1px 0;
+        padding-bottom: 1rem;
+      }
+
+      & .plot {
+        padding: 1rem 0;
+      }
+
+      & .meta-footer {
+        @extend .meta-base;
+        padding-top: 1rem;
+        border-width: 1px 0 0 0;
+        position: relative;
+
+        & .rated {
+          background-color: black;
+          color: white;
+          padding: 5px;
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+      }
+    }
+  }
+
+  & .img {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 400px;
+    max-width: 100%;
+    margin: 1rem 0;
+  }
+
+  // @media (max-width: 560px) {
+  //   flex-basis: 100%;
+  // }
+
+  .meta-base {
+    border-color: black;
+    border-style: solid;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+}

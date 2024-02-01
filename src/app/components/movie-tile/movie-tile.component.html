@@ -1,0 +1,51 @@
+<!-- @if (movieById$ | async; as movie) { -->
+@if(m) {
+<mat-card>
+  <mat-card-header>
+    <mat-card-title
+      >{{ m.title }} @if(!isFeatured()) { ({{ m.released }}) }
+    </mat-card-title>
+  </mat-card-header>
+
+  <div
+    class="img"
+    [ngStyle]="{ 'background-image': 'url(' + m.poster + ')' }"
+  ></div>
+
+  <mat-card-content>
+    <div class="meta">
+      <div>year: {{ m.year }}</div>
+      <div>awards: {{ m.awards }}</div>
+    </div>
+
+    <div class="plot">
+      <p>
+        {{ m.plot | readMore : 200 : readMoreDisabled }}
+      </p>
+
+      @if(m.plot.length > 200) {
+      <button mat-flat-button (click)="readMoreDisabled = !readMoreDisabled">
+        Read {{ readMoreDisabled ? "less" : "more" }}
+      </button>
+      }
+    </div>
+
+    @if(!isFeatured()) {
+    <div class="meta-footer">
+      <span>type: {{ m.type }}</span>
+      <span class="rated">rated: {{ m.rated }}</span>
+      <span
+        >genre: <span appList>{{ m.genre }}</span></span
+      >
+      <span>director: {{ m.director }}</span>
+      <div>
+        writers: <span appList>{{ m.writer }}</span>
+      </div>
+      <div>
+        actors: <span appList>{{ m.actors }}</span>
+      </div>
+    </div>
+    }
+  </mat-card-content>
+</mat-card>
+}

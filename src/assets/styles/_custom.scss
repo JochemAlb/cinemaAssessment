@@ -1,0 +1,13 @@
+.badge {
+  background-color: var(--gray-20);
+  border-radius: 4px;
+  color: white;
+  font-size: 0.8rem;
+  padding: 1px 5px;
+}
+
+[appList] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}

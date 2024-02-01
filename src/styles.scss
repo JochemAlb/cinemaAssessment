@@ -1,0 +1,17 @@
+@import "./assets/styles/variables";
+@import "./assets/styles/containers";
+@import "./assets/styles/posistions";
+@import "./assets/styles/custom";
+
+body {
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

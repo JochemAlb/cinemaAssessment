@@ -1,0 +1,30 @@
+<h1>Search movies:</h1>
+
+<form [formGroup]="form" (submit)="onSubmit($event)" #searchForm>
+  <mat-form-field class="movie-title">
+    <mat-label>Movie title</mat-label>
+    <input matInput formControlName="movieTitle" />
+    @if(formSubmitted && f["movieTitle"].errors &&
+    f["movieTitle"].errors["required"]) {
+    <mat-error>Movie title is required</mat-error>
+    }
+  </mat-form-field>
+
+  <div>
+    <mat-checkbox formControlName="fullPlot">Show full plot</mat-checkbox>
+  </div>
+
+  <button mat-flat-button color="accent" type="submit">Search</button>
+</form>
+
+@if(moviesByTitle$ | async; as movies) {
+<div class="results-container">
+  @if(movies.length === 0) { no movies found } @for(movie of movies; track
+  movie.id) {
+  <app-movie-tile
+    [movie]="movie"
+    [fullPlot]="f['fullPlot'].value"
+  ></app-movie-tile>
+  }
+</div>
+}

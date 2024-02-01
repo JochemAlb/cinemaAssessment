@@ -1,0 +1,17 @@
+:host {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 1rem;
+
+  .movie-title {
+    width: 50%;
+
+    @media (max-width: 500px) {
+      width: 100%;
+    }
+  }
+
+  & .results-container {
+    margin-top: 10px;
+  }
+}

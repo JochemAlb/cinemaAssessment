@@ -1,0 +1,8 @@
+<h1>Featured movies</h1>
+@if(featuredMovies$ | async; as movies) {
+<div class="results-container">
+  @for(movie of movies; track movie.id) {
+  <app-movie-tile [movie]="movie" [isFeatured]="true"></app-movie-tile>
+  }
+</div>
+}
